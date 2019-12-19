@@ -8,6 +8,8 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.work.Constraints;
+import androidx.work.NetworkType;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
@@ -54,6 +56,7 @@ public class MyWorker extends Worker {
 
                     String currentWeather = responseObject.getJSONArray("weather")
                             .getJSONObject(0).getString("main");
+
                     String description = responseObject.getJSONArray("weather")
                             .getJSONObject(0).getString("description");
                     double tempInKelvin = responseObject.getJSONObject("main").getDouble("temp");
